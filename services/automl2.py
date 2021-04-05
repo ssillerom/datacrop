@@ -11,6 +11,8 @@ import base64
 import io
 import autosklearn.regression
 
+
+
 #---------------------------------#
 # Page layout
 ## Page expands to full width
@@ -51,6 +53,7 @@ def build_model(df):
     
     automl = autosklearn.regression.AutoSklearnRegressor()
     automl.fit(X_train, Y_train)
+    st.write(automl.show_models())
     predictions_test = automl.predict(X_test)
     st.write("R2 score:", r2_score(Y_test, predictions_test))
     
