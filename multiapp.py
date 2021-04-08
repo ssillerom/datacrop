@@ -40,7 +40,7 @@ class MultiApp:
         })
 
     def run(self):
-        st.sidebar.image('./logo-02.png',width=200)
+        st.sidebar.image('./img/logo-02.png',width=200) 
         
         username = st.sidebar.text_input("Introduzca su usuario:")
         password = st.sidebar.text_input("Introduzca su contraseña:", type='password')
@@ -64,9 +64,9 @@ class MultiApp:
                 st.warning("Usuario/Contraseña incorrectos")
 
         else:
-            st.info("Por favor, inicia sesión para ver el menú de usuario")
-            st.info("Recuerde que tiene el usuario en el email")
+            st.info("Por favor, inicia sesión para ver el menú de usuario. Recuerde que tiene el usuario en el email")
+            
 
-        st.sidebar.warning("Por favor mantenga marcada la casilla para conservar la sesión")
+        st.sidebar.warning("* Mantenga marcada la casilla para conservar la sesión.")
 
 

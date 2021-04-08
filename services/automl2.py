@@ -121,8 +121,6 @@ def build_model(df):
     st.pyplot(plt)
     st.markdown(imagedownload(plt,'plot-calculation-time-wide.pdf'), unsafe_allow_html=True)
 
-# Download CSV data
-# https://discuss.streamlit.io/t/how-to-download-file-in-streamlit/1806
 def filedownload(df, filename):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
