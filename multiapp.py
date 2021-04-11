@@ -54,7 +54,7 @@ class MultiApp:
 
             if result:
 
-                st.info("¡Bienvenid@ de nuevo {}!".format(username))
+                st.success("¡Bienvenid@ de nuevo {}!".format(username))
                 app = st.sidebar.selectbox(
                 'Menú Principal',
                 self.apps,
