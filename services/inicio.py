@@ -21,7 +21,7 @@ def app():
 
     """)
 
-    link = '[Documentación](http://www.datacrop.es)'
+    link = '[Acceder a la Documentación](https://datacrop.es/recursos-y-descargas/)'
     st.markdown(link, unsafe_allow_html=True)   
     
     col1,col2,col3 = st.beta_columns(3)
