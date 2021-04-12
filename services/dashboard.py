@@ -29,7 +29,7 @@ def app():
     elif choice == "Penetración (%) por producto y lugar de compra":
         stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiMDdhMjk5ZDUtOTBkMy00ZTQwLTg5YmUtYmQ1NTFjN2E1MGQwIiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9",height=635,width=1200)
     elif choice == "Informe del comercio exterior":
-        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiODRhNzg2MTktMzE4MC00N2M5LTk2ZmYtMWEyYzg3OTc1NjNiIiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9",height = 635, width=1200)
+        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiZTE0YTU3NjctNzg1ZC00NTlhLTk4YmYtZDQ2NzZkZDczNzc2IiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9",height = 635, width=1200)
     elif choice == "Comercio y COVID19":
         stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiZmIxNTM4N2EtZGQ3NS00ZmYyLWIxNTctYjEwMjRhNGE0ODEzIiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9",height = 635,width=1200)
     elif choice == "Composición química de la atmósfera":
