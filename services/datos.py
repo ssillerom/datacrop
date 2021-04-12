@@ -55,3 +55,11 @@ def app():
         st.dataframe(df3)
     else:
         st.info("Esperando a que seleccione alguna de las preguntas...")
+
+    # Remover el footer de made with streamlit
+    hide_footer_style = """
+        <style>
+        .reportview-container .main footer {visibility: hidden;}    
+        """
+    st.markdown(hide_footer_style, unsafe_allow_html=True)
+

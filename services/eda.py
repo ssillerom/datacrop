@@ -69,3 +69,10 @@ def app():
                 report = sv.analyze(df_test)
                 report.show_html()
                 st.write(report)
+
+    # Remover el footer de made with streamlit
+    hide_footer_style = """
+    <style>
+    .reportview-container .main footer {visibility: hidden;}    
+    """
+    st.markdown(hide_footer_style, unsafe_allow_html=True)
