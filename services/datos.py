@@ -8,7 +8,6 @@ import streamlit.components.v1 as stc
 import sweetviz as sv
 from streamlit_pandas_profiling import st_profile_report
 from pandas_profiling import ProfileReport
-from utils import download_button
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_pregunta(ruta_archivo):

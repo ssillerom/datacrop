@@ -17,7 +17,7 @@ def app():
     - Datacrop Exploratory Service
     - Datacrop AutoML Service
 
-    Recuerde no desmarcar la casilla de inicio de sesión para poder acceder al resto de contenido de la web
+    Porfavor no desmarque la casilla de inicio de sesión para poder acceder al resto de contenido de la web
 
     """)
 

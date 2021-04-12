@@ -15,6 +15,8 @@ class MultiApp:
         })
 
     def run(self):
+
+
         
         st.sidebar.image('./img/logo-02.png',width=200) 
         

@@ -3,10 +3,7 @@ import streamlit as st
 from multiapp import MultiApp
 from services import inicio, datos, autoML, dashboard, eda
 
-FAVICON_URL = "https://i.imgur.com/2b7fItD.png"
-
-st.set_page_config(page_title="Datacrop Platform", page_icon=FAVICON_URL, layout="wide")
-
+st.set_page_config(page_title='Datacrop Platform', page_icon="https://i.imgur.com/2b7fItD.png", layout='wide', initial_sidebar_state='expanded')
 
 
 # Se añade al objeto multi app todas las aplicaciones que componen la plataforma para que sean ejecutadas cuando se ejecute el servicio
@@ -17,6 +14,9 @@ app.add_app("Analisis de los Datos", datos.app)
 app.add_app("Dashboards", dashboard.app)
 app.add_app("Datacrop Exploratory Service", eda.app)
 app.add_app("Datacrop AutoML Service", autoML.app)
+
+FAVICON_URL = "https://i.imgur.com/2b7fItD.png"
+
 
 
 # ejecucion app principal
