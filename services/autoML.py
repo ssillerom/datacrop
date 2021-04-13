@@ -159,12 +159,8 @@ def app():
             st.warning("Esperando selección de parametros...")
 
     else:
-        st.info("Esperando datos...")
+        st.info("Esperando datos en formato CSV...")
 
 
 # Remover el footer de made with streamlit
-hide_footer_style = """
-    <style>
-    .reportview-container .main footer {visibility: hidden;}    
-    """
-st.markdown(hide_footer_style, unsafe_allow_html=True)
+

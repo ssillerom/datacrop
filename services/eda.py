@@ -5,6 +5,7 @@ from streamlit_pandas_profiling import st_profile_report
 from pandas_profiling import ProfileReport
 
 
+
 def app():
     st.header("¿Quieres ver de una forma rápida y sencilla la calidad de tus datos?")
     st.subheader("Usa EDS y consigue un reporte estadistico exploratorio sobre tus datos. Dispones de dos tipos de reportes diferentes: Pandas EDA y Sweetviz Report")

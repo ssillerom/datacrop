@@ -158,11 +158,53 @@ def app():
         st.header(
             'Evolución de los precios en las principales plataformas de distribución de España.')
 
-       
+        st.markdown('##')
 
+        if st.checkbox('Ver Jupyter Notebook'):
+            HtmlFile = open('./data/analisis/a2/evol_precios.html',
+                            'r', encoding='utf-8')
+            source_code = HtmlFile.read()
+            stc.html(source_code, width=1400, height=650, scrolling=True)
+        else:
+            pass
 
+        st.markdown('##')
 
+        st.markdown("""
+        El estallido de la Covid-19 y la consecuente crisis sanitaria provocó una bajada inicial de precios. Sin embargo, como ya se vaticinaba en el análisis 1, el aumento de la demanda unido a las dificultades en la producción desembocó en un aumento de la volatilidad de los precios de ciertos alimentos, lo que provocó una inestabilidad del mercado que desembocó finalmente en un escenario alcista con una elevación significativa de los precios en frutas y hortalizas.
+         
+        """)
 
+        st.markdown('##')
+
+        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiNDZlZDcwODItMjZjNy00ZmZjLTllNDktOTk1ODU3MjM5YjE4IiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9&amp;pageName=ReportSection",height=635,width=1200)
+
+        st.markdown('##')
+
+        st.markdown("""
+        La demanda de frutas como fuente de vitaminas incrementó los precios de los cítricos, los melocotones (289.37%), la sandía (58.40%), el melón (82.54%) o la uva (67.32%). El precio del aguacate, considerado por sus grandes propiedades nutricionales como un “superalimento” también creció un 76.41%. También el de ciertas hortalizas como la berenjena (125%) o el calabacín (101%). El temor de la población a la enfermedad también se tradujo en sus hábitos a la hora de realizar la compra, optando por productos envueltos en plástico antes que aquellos que están expuestos (como ocurre con la lechuga (45.59%)).
+        
+        """)
+
+        st.markdown('##')
+
+        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiN2JjOTMyMzAtZTM3NC00YzAyLWIzMzYtOGE2NzZjOWVlMzNiIiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9",height=635, width=1200)
+
+        st.markdown('##')
+
+        st.markdown("""
+        Los precios que se alcanzaron en cada mercado dependieron de muchos factores, entre ellos la capacidad productiva de la comunidad autónoma a la que pertenece el mercado. En Cataluña se produjo una gran demanda de frutas de hueso como la nectarina, pero por la falta de capacidad productiva, los precios subieron. De hecho, si comparamos los precios de las nectarinas o de los melocotones entre mercaMadrid y mercaBarna se comprueba que el precio medio es mayor en el segundo. Este fenómeno justificó la decisión de utilizar fondos covid en el campo catalán para modernizar el regadío y digitalizar el sector.
+        
+        """)
+
+        st.markdown("""
+        En la otra cara de la moneda se encontraba Andalucía con el caso de las fresas de Huelva. Como se explicaba en el análisis 1, el inicio de la crisis sanitaria y la época de recolección coincidieron desencadenando graves problemas en la producción como consecuencia de la falta de mano de obra estacional y, por lo tanto, bajadas en los precios. Todo ello queda perfectamente reflejado en el informe que presentamos a continuación.
+        
+        """)
+
+        st.markdown("##")
+
+        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiZjYyNDYyYzctZWI3Yy00NDFiLWI3YmMtYjM2NTgxNTkwZTM0IiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9&amp;pageName=ReportSectionab929194a7fa9d1d65ba",height=635,width=1200)
 
 
     elif choice == "Análisis 3":
@@ -170,11 +212,25 @@ def app():
         
         st.markdown('##')
 
-        st.markdown("""
-        España fue el primer exportador de toda la unión europea de Frutas y Hortalizas en el año 2020 y tercero mundial ya que solo la superan EEUU y China. La mitad de la producción nacional se exporta fuera de nuestras fronteras y principalmente a la Unión Europea sobre todo las hortalizas de invierno además de los cítricos, como hemos podido observar en otro análisis del reto, han subido su demanda debido a la pandemia.
-        Durante el periodo de enero-noviembre de 2020 y con una pandemia de por medio, el sector agroalimentario español no sólo no redujo sus exportaciones, sino que creció un 5,4% más con respecto al mismo periodo de 2019*. En concreto las exportaciones de frutas y hortalizas crecieron en torno a un 7,7% en conjunto.
-        Tras el impacto inicial que causó la covid-19 en el saldo comercial durante los dos primeros meses de la pandemia y que causó el cierre de las fronteras de los países de la UE. En el PowerBI que se ha realizado para este análisis podemos observar para cada producto, país y fecha, las importaciones y exportaciones de la UE con respecto a España.
+        if st.checkbox('Ver Jupyter Notebook'):
+            HtmlFile = open('./data/analisis/a3/comercio_exterior.html',
+                            'r', encoding='utf-8')
+            source_code = HtmlFile.read()
+            stc.html(source_code, width=1400, height=650, scrolling=True)
+        else:
+            pass
+            
+        
+        st.markdown('##')
 
+        st.markdown("""
+        España fue el primer exportador hortofrutícula de toda la unión europea en el año 2020 y tercero mundial ya que sólo la superan EEUU y China. La mitad de la producción nacional se exporta fuera de nuestras fronteras y principalmente a la Unión Europea sobre todo las hortalizas de invierno además de los cítricos, como hemos podido observar en otro análisis del reto, han subido su demanda debido a la pandemia.
+        
+        """)
+
+        st.markdown("""
+Durante el periodo de enero-diciembre de 2020 y con una pandemia de por medio, el sector agroalimentario español no sólo no redujo sus exportaciones, sino que creció un 5,4% más con respecto al mismo periodo de 2019. En concreto las exportaciones de frutas y hortalizas crecieron en torno a un 7,7% en conjunto. Todo ello con el impacto inicial que causó la covid-19 en el saldo comercial durante los dos primeros meses de la pandemia y que causó el cierre de las fronteras de los países de la UE y su evolución como veremos mas adelante con el auge de España en las exportaciones. En el siguiente PowerBI podemos observas las importaciones/exportaciones de los distintos paises de la UE con respecto a España.
+        
         """)
 
         st.markdown('##')
@@ -190,12 +246,12 @@ def app():
         st.subheader("¿Por qué ocurrió el boom exportador de España a la UE durante el final de la cuarentena?")
 
         st.markdown("""
-        Durante los peores meses del confinamiento que fueron marzo y abril para el sector (dado que la cadena de suministro agroalimentaria está integrada y opera a través de las fronteras) el cierre de estas bloqueó el suministro y perturbó terriblemente la actividad durante estos meses tanto a nivel logístico como a nivel productivo. Al ser un sector donde los trabajadores suelen ser jornaleros de origen inmigrante además de estar restringido el movimiento de personas entre países provocó una escasez de mano de obra. Todo ello provocó rotura de stock en ciertas frutas y hortalizas en la Unión Europea sobre todo en los cítricos, fruta que España es la que más exporta a la UE y que aumentó su demanda exponencialmente durante el confinamiento. Por ello en mayo, cuando se empezaron a relajar las medidas y se empezaron a abrir las fronteras a través de corredores especiales para evitar desabastecimiento en la UE España experimentó un crecimiento exponencial de su capacidad exportadora de las frutas y hortalizas.
+        Durante los peores meses del confinamiento que fueron marzo y abril para el sector (dado que la cadena de suministro agroalimentaria está integrada y opera a través de las fronteras) el cierre fronterizo bloqueó el suministro y perturbó terriblemente la actividad durante estos meses tanto a nivel logístico como a nivel productivo. Al ser un sector donde los trabajadores suelen ser jornaleros de origen inmigrante y estar restringido el movimiento de personas entre países provocó una escasez de mano de obra. Estos obstáculos acabaron desencadenando en una rotura de stock en ciertas frutas y hortalizas en la Unión Europea sobre todo en los cítricos, fruta que España es la que más exporta a la UE y que aumentó su demanda exponencialmente durante el confinamiento. Por ello en mayo, cuando se empezaron a relajar las medidas y a abrir las fronteras entre países a través de corredores especiales para evitar desabastecimiento en la UE, España experimentó un crecimiento exponencial de su exportaciones de las frutas y hortalizas.
         
         """)
 
         st.markdown("""
-        Por ello el balance comercial en el sector agroalimentario de España y su impulso durante los meses posteriores al primer confinamiento domiciliario, permitió cerrar 2020 en positivo con 14.025 millones de euros aproximadamente. Para concluir, la exportación de hortalizas en nuestro país durante 2020 creció un 4,6%. Por otro lado, la exportación de frutas en ese mismo periodo creció un 10% más que en 2019. El valor de los productos más exportados fue el de los cítricos debido a que durante la covid-19 ha aumentado el consumo de productos ricos en vitaminas debido al confinamiento domiciliario y una alimentación más saludable.
+        La necesidad de importar frutas y hortalizas por parte de los distintos países y el cambio de patrones de consumo provocó que el balance comercial en el sector agroalimentario de España cerrase 2020 en positivo con 14.025 millones de euros aproximadamente. Para concluir, la exportación de hortalizas en nuestro país durante 2020 creció un 4,6%. Por otro lado, la exportación de frutas en ese mismo periodo creció un 10% más que en 2019. El valor de los productos más exportados fue el de los cítricos debido a que durante la covid-19 ha aumentado el consumo de productos ricos en vitaminas debido al confinamiento domiciliario y una alimentación más saludable.
         
         
         """)
@@ -209,10 +265,23 @@ def app():
         st.header(
             '¿Existe correlación entre los casos de COVID-19 y las importaciones/exportaciones a nivel de la Unión Europea?')
 
+        st.markdown('##')
+
+        if st.checkbox('Ver Jupyter Notebook'):
+            HtmlFile = open('./data/analisis/a4/covid_19_comercioExt.html',
+                            'r', encoding='utf-8')
+            source_code = HtmlFile.read()
+            stc.html(source_code, width=1400, height=650, scrolling=True)
+        else:
+            pass
+
+        st.markdown('##')
+
         st.markdown("""
-        Tras realizar un estudio de correlaciones entre los datos de la COVID-19 y el comercio exterior en la Unión Europea se ha llegado a la conclusión de que existe una correlación positiva entre el número de casos y las importaciones/exportaciones. Obteniendo resultados diferentes si  comparamos los casos con el valor de la transacción o el número de kilos exportados/importados:
+        Tras realizar un estudio de correlaciones entre los datos de la COVID-19 y el comercio exterior en la Unión Europea se ha llegado a la conclusión de que existe una correlación positiva entre el número de casos y las importaciones/exportaciones. Obteniendo resultados diferentes si comparamos los casos con el valor de la transacción o el número de kilos exportados/importados:
         
         """)
+
         st.markdown('##')
 
         st.image('./img/img4.png', use_column_width=True)
