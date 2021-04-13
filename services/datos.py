@@ -158,18 +158,88 @@ def app():
         st.header(
             'Evolución de los precios en las principales plataformas de distribución de España.')
 
+       
+
+
+
+
+
 
     elif choice == "Análisis 3":
-        st.header('Impacto de la COVID-19 en el comercio exterior')
-        df2 = load_pregunta('./data/comercioExterior_Limpio.csv')
-        st.dataframe(df2)
-        df3 = load_pregunta('./data/covid19DatosEU_Limpio.csv')
-        st.dataframe(df3)
+        st.header('¿Qué efecto ha tenido sobre las importaciones/exportaciones de F&H?¿Ha tenido algún efecto especial el periodo de excepción (Marzo, abril y mayo)?')
+        
+        st.markdown('##')
+
+        st.markdown("""
+        España fue el primer exportador de toda la unión europea de Frutas y Hortalizas en el año 2020 y tercero mundial ya que solo la superan EEUU y China. La mitad de la producción nacional se exporta fuera de nuestras fronteras y principalmente a la Unión Europea sobre todo las hortalizas de invierno además de los cítricos, como hemos podido observar en otro análisis del reto, han subido su demanda debido a la pandemia.
+        Durante el periodo de enero-noviembre de 2020 y con una pandemia de por medio, el sector agroalimentario español no sólo no redujo sus exportaciones, sino que creció un 5,4% más con respecto al mismo periodo de 2019*. En concreto las exportaciones de frutas y hortalizas crecieron en torno a un 7,7% en conjunto.
+        Tras el impacto inicial que causó la covid-19 en el saldo comercial durante los dos primeros meses de la pandemia y que causó el cierre de las fronteras de los países de la UE. En el PowerBI que se ha realizado para este análisis podemos observar para cada producto, país y fecha, las importaciones y exportaciones de la UE con respecto a España.
+
+        """)
+
+        st.markdown('##')
+
+        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiZTE0YTU3NjctNzg1ZC00NTlhLTk4YmYtZDQ2NzZkZDczNzc2IiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9", height=635, width=1200)
+
+        st.markdown('##')
+
+        st.markdown("""
+        Como podemos observar, los países que más frutas y hortalizas importaron de España durante el periodo de marzo a noviembre fueron: Alemania, Francia, Holanda, Italia y Portugal. Sin embargo, la mayor parte de las transacciones se produjeron a partir de mayo como hemos mencionado anteriormente tras empezar la desescalada generalizada por parte de todos los países de la unión. Por ejemplo, en Alemania el 67,8% de las importaciones provenientes de España durante el periodo mencionado anteriormente se produjeron a partir de dicho mes clave para la desescalada. Por otro lado, aquellos países que más frutas y hortalizas exportaron hacia España fueron Francia, Portugal, Países Bajos e Italia.
+        """)
+
+        st.subheader("¿Por qué ocurrió el boom exportador de España a la UE durante el final de la cuarentena?")
+
+        st.markdown("""
+        Durante los peores meses del confinamiento que fueron marzo y abril para el sector (dado que la cadena de suministro agroalimentaria está integrada y opera a través de las fronteras) el cierre de estas bloqueó el suministro y perturbó terriblemente la actividad durante estos meses tanto a nivel logístico como a nivel productivo. Al ser un sector donde los trabajadores suelen ser jornaleros de origen inmigrante además de estar restringido el movimiento de personas entre países provocó una escasez de mano de obra. Todo ello provocó rotura de stock en ciertas frutas y hortalizas en la Unión Europea sobre todo en los cítricos, fruta que España es la que más exporta a la UE y que aumentó su demanda exponencialmente durante el confinamiento. Por ello en mayo, cuando se empezaron a relajar las medidas y se empezaron a abrir las fronteras a través de corredores especiales para evitar desabastecimiento en la UE España experimentó un crecimiento exponencial de su capacidad exportadora de las frutas y hortalizas.
+        
+        """)
+
+        st.markdown("""
+        Por ello el balance comercial en el sector agroalimentario de España y su impulso durante los meses posteriores al primer confinamiento domiciliario, permitió cerrar 2020 en positivo con 14.025 millones de euros aproximadamente. Para concluir, la exportación de hortalizas en nuestro país durante 2020 creció un 4,6%. Por otro lado, la exportación de frutas en ese mismo periodo creció un 10% más que en 2019. El valor de los productos más exportados fue el de los cítricos debido a que durante la covid-19 ha aumentado el consumo de productos ricos en vitaminas debido al confinamiento domiciliario y una alimentación más saludable.
+        
+        
+        """)
+
+        st.markdown('##')
+
+        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiZmIxNTM4N2EtZGQ3NS00ZmYyLWIxNTctYjEwMjRhNGE0ODEzIiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9", height=635, width=1200)
+
+
     elif choice == "Análisis 4":
         st.header(
             '¿Existe correlación entre los casos de COVID-19 y las importaciones/exportaciones a nivel de la Unión Europea?')
-        df3 = load_pregunta('./data/covid19DatosEU_Limpio.csv')
-        st.dataframe(df3)
+
+        st.markdown("""
+        Tras realizar un estudio de correlaciones entre los datos de la COVID-19 y el comercio exterior en la Unión Europea se ha llegado a la conclusión de que existe una correlación positiva entre el número de casos y las importaciones/exportaciones. Obteniendo resultados diferentes si  comparamos los casos con el valor de la transacción o el número de kilos exportados/importados:
+        
+        """)
+        st.markdown('##')
+
+        st.image('./img/img4.png', use_column_width=True)
+
+        st.markdown('##')
+
+        st.markdown("""
+        La correlación entre el número de kilos importados por parte de España desde los distintos países de la UE es de 0.28. Por otro lado, la correlación entre el número de kilos exportados por España a los diferentes países de la UE aumenta hasta 0.32 . Es decir, por cada 100 kg de frutas o verduras exportadas había en torno a 32 casos de Covid-19 en Europa. Además, comparando el valor en euros de las importaciones/exportaciones con el número de casos se ha obtenido prácticamente el mismo grado de correlación, por cada euro en comercio exterior se incrementa el número de casos en 0.26
+        
+        """)
+
+        st.header("¿ A qué podría deberse estos resultados con respecto a la correlación y España?"
+        
+        )
+
+        st.markdown("""
+        Los diferentes ritmos de la recuperación de los distintos países de la Unión Europea durante el primer confinamiento domiciliario, sumado a las restricciones de movilidad, la escasa mano de obra, la dificultad logística y el gran problema de la rotura de stock además de la mayor demanda de consumo de F&H en toda la UE debido a una mejora de los hábitos alimenticios debido al mayor sedentarismo que suponía el confinamiento domiciliario, generó una fuerte dependencia hacia las importaciones por parte de los distintos países de la Unión Europea, sobre todo con respecto a España. Por ello la correlación aunque sea débilmente positiva, es suficiente para poder realizar hipótesis sobre ella. Los corredores especiales durante la desescalada, además de la conocida capacidad productiva de F&H en España supusieron una dependencia al comercio exterior por parte de los países europeos al no poder satisfacer la demanda nacional con su producción. 
+        
+        
+        """)
+
+        st.markdown('##')
+
+        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiZmIxNTM4N2EtZGQ3NS00ZmYyLWIxNTctYjEwMjRhNGE0ODEzIiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9", height=635, width=1200)
+
+
+
     elif choice == "Análisis 5":
         st.header('El estado de alarma revoluciona los hábitos de consumo')
         df3 = load_pregunta('./data/covid19DatosEU_Limpio.csv')
