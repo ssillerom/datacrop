@@ -7,16 +7,17 @@ from h2o.automl import H2OAutoML
 import base64
 
 h2o.init()
-## Funcion descargar dataframes en csv
+# Funcion descargar dataframes en csv
+
+
 def get_table_download_link(df):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(
         csv.encode()
-    ).decode() 
+    ).decode()
     return f'<a href="data:file/csv;base64,{b64}" download="myfilename.csv">Descargar predicciones en CSV</a>'
 
 
-        
 # Funcion carga de csv
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_csv(upload_file):
@@ -24,6 +25,8 @@ def load_csv(upload_file):
     return csv
 
 # Funcion para transformar los train/test dataset en objetos de H2O a modo que pueda ingestarlos en el entrenamiento del modelo
+
+
 def load_h2o(train, test):
     h2o_train = h2o.H2OFrame(train)
     h2o_test = h2o.H2OFrame(test)
@@ -44,7 +47,7 @@ def app():
     # PASO 1 - IMPORTAR DATOS
 
     st.header("1. Importar los datos :seedling:")
-    
+
     # Se pide que suba los datos
     uploaded_file = st.file_uploader(
         "Por favor, cargue los datos a analizar", type=["csv"])
@@ -55,18 +58,19 @@ def app():
         st.dataframe(df)
         target_list = df.columns
 
-
         # PASO 2 - SELECCIONAR PARAMETROS
 
         st.header("2. Parametros de AutoML :herb:")
 
-        st.subheader("Seleccione las variables que quiere incluir en su Dataframe")
+        st.subheader(
+            "Seleccione las variables que quiere incluir en su Dataframe")
 
         # Parametro para customizar la composicion del dataframe con el que quieres entrenar el modelo
-        selected_columns = st.multiselect('Si no marca ninguna por defecto se incluira todas las features de su Dataframe',target_list)
+        selected_columns = st.multiselect(
+            'Si no marca ninguna por defecto se incluira todas las features de su Dataframe', target_list)
 
         if len(selected_columns) != 0:
-            df = df.loc[:, df.columns.isin(selected_columns)] 
+            df = df.loc[:, df.columns.isin(selected_columns)]
             st.dataframe(df)
         else:
             pass
@@ -85,14 +89,11 @@ def app():
 
         split_size = st.slider('', 10, 90, 80, 5)
 
-
-
         st.subheader("Variable que quiere predecir: ")
         selected_target = st.selectbox("", target_list)
 
-    
         st.subheader("Selecciona el número de modelos que desea entrenar: ")
-        number_of_models = st.radio('', [5, 10, 15,20, 25])
+        number_of_models = st.radio('', [5, 10, 15, 20, 25])
 
         if st.button("Ejecutar AutoML"):
             df_train = df.loc[:int(df.shape[0]*(split_size/100)), :]
@@ -111,54 +112,55 @@ def app():
             aml = H2OAutoML(max_runtime_secs=30, max_models=number_of_models)
             aml.train(x=x, y=y, training_frame=h2o_train)
 
-            st.success(":rocket: ¡Se han entrenado los {} modelos correctamente! :rocket:".format(number_of_models))
-
+            st.success(":rocket: ¡Se han entrenado los {} modelos correctamente! :rocket:".format(
+                number_of_models))
 
             # PASO 3 Seleccionar el modelo que mejor precisión tiene y poder hacer predicciones
             st.header("3. Modelos Entrenados :deciduous_tree:")
 
             st.subheader("Ranking de Modelos:")
-            
-            ## Sacamos el ranking de los modelos que se han calculado con sus metricas
+
+            # Sacamos el ranking de los modelos que se han calculado con sus metricas
 
             lb = aml.leaderboard.as_data_frame()
 
             st.dataframe(lb)
 
             st.subheader("Modelo Ganador: :trophy:")
-            st.dataframe(lb.iloc[1,:])
+            st.dataframe(lb.iloc[1, :])
 
-            ## Se genera las predicciones sobre el test con el mejor modelo 
+            # Se genera las predicciones sobre el test con el mejor modelo
 
             st.subheader("Predicciones del Dataframe Test :crystal_ball: ")
 
             preds = aml.leader.predict(h2o_test)
 
-
-            pred_as_list = h2o.as_list(preds, use_pandas = True, header= True)
+            pred_as_list = h2o.as_list(preds, use_pandas=True, header=True)
 
             df_preds = df_test.copy()
 
             df_preds.reset_index(inplace=True)
 
-            df_preds = pd.concat([df_preds,pred_as_list], join="outer", axis = 1)
-            df_preds.drop(columns=['index'],inplace=True)
+            df_preds = pd.concat([df_preds, pred_as_list],
+                                 join="outer", axis=1)
+            df_preds.drop(columns=['index'], inplace=True)
 
             st.write(df_preds)
 
-            st.markdown(get_table_download_link(df_preds), unsafe_allow_html=True)
+            st.markdown(get_table_download_link(
+                df_preds), unsafe_allow_html=True)
 
             # PASO 4 Exportar modelo y predicciones
 
-            model_path = h2o.save_model(model=aml.leader, path="./trained_models/", force=True)
-
+            model_path = h2o.save_model(
+                model=aml.leader, path="./trained_models/", force=True)
 
         else:
             st.warning("Esperando selección de parametros...")
 
-
     else:
         st.info("Esperando datos...")
+
 
 # Remover el footer de made with streamlit
 hide_footer_style = """
@@ -166,7 +168,3 @@ hide_footer_style = """
     .reportview-container .main footer {visibility: hidden;}    
     """
 st.markdown(hide_footer_style, unsafe_allow_html=True)
-
-
-    
-

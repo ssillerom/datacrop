@@ -9,8 +9,9 @@ Librerias necesarias para ejecutar el código
 - matplotlib
 - Seaborn
 - Sklearn
+- Pandas
 
-Para ejecutar la plataforma una vez instalada las librerías se deberá ejecutar en CMD:
+Para ejecutar la plataforma en local, una vez instalada las librerías se deberá ejecutar en CMD:
 
 streamlit run app.py
 

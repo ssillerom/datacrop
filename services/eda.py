@@ -4,10 +4,10 @@ import sweetviz as sv
 from streamlit_pandas_profiling import st_profile_report
 from pandas_profiling import ProfileReport
 
+
 def app():
     st.header("¿Quieres ver de una forma rápida y sencilla la calidad de tus datos?")
     st.subheader("Usa EDS y consigue un reporte estadistico exploratorio sobre tus datos. Dispones de dos tipos de reportes diferentes: Pandas EDA y Sweetviz Report")
-
 
     menu = ["Pandas EDA", "SweetViz Report"]
     choice = st.selectbox("Menu", menu)
@@ -33,11 +33,12 @@ def app():
             st.header('**Reporte de Pandas Profiling**')
             st_profile_report(pr)
             pr.to_file(output_file='PandasEDA_Datacrop.html')
-            
-        else :
+
+        else:
             st.info('Recuerde cargar el CSV para poder generar el reporte.')
             if st.button("Usar datos de ejemplo"):
-                st.info("Generando informe de ejemplo con Pandas EDA porfavor espere...")
+                st.info(
+                    "Generando informe de ejemplo con Pandas EDA porfavor espere...")
                 df_test = pd.read_csv("./data/comercioExterior_Limpio.csv")
                 pr = ProfileReport(df_test, explorative=True)
                 st.header('**DataFrame Cargado**')

@@ -9,34 +9,39 @@ from h2o.automl import H2OAutoML
 from bokeh.models.widgets import Div
 
 
-
-
 def create_usertable():
     conn = sqlite3.connect('datacrop_users.db')
     c = conn.cursor()
-    c.execute('CREATE TABLE IF NOT EXISTS tablaUsuarios(username TEXT,password TEXT)')
+    c.execute(
+        'CREATE TABLE IF NOT EXISTS tablaUsuarios(username TEXT,password TEXT)')
 
-def add_userdata(username,password):
+
+def add_userdata(username, password):
     conn = sqlite3.connect('datacrop_users.db')
     c = conn.cursor()
-    c.execute('INSERT INTO tablaUsuarios(username,password) VALUES (?,?)',(username,password))
+    c.execute('INSERT INTO tablaUsuarios(username,password) VALUES (?,?)',
+              (username, password))
     conn.commit()
 
-def login_user(username,password):
+
+def login_user(username, password):
     conn = sqlite3.connect('datacrop_users.db')
     c = conn.cursor()
-    c.execute('SELECT * FROM tablaUsuarios WHERE username =? AND password = ?',(username,password))
+    c.execute('SELECT * FROM tablaUsuarios WHERE username =? AND password = ?',
+              (username, password))
     data = c.fetchall()
     return data
 
 
 def make_hashes(password):
-	return hashlib.sha256(str.encode(password)).hexdigest()
+    return hashlib.sha256(str.encode(password)).hexdigest()
 
-def check_hashes(password,hashed_text):
-	if make_hashes(password) == hashed_text:
-		return hashed_text
-	return False
+
+def check_hashes(password, hashed_text):
+    if make_hashes(password) == hashed_text:
+        return hashed_text
+    return False
+
 
 def open_link(url, new_tab=True):
     """Dirty hack to open a new web page with a streamlit button."""
@@ -48,10 +53,11 @@ def open_link(url, new_tab=True):
     div = Div(text=html)
     st.bokeh_chart(div)
 
+
 def download_button(object_to_download, download_filename, button_text):
     """
     Generates a link to download the given object_to_download.
-    
+
     From: https://discuss.streamlit.io/t/a-download-button-with-custom-css/4220
     Params:
     ------
@@ -132,13 +138,8 @@ def download_button(object_to_download, download_filename, button_text):
 
     st.markdown(dl_link, unsafe_allow_html=True)
 
+
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_csv(upload_file):
-        csv = pd.read_csv(upload_file)
-        return csv
-
-        
-
-
-
-    
+    csv = pd.read_csv(upload_file)
+    return csv
