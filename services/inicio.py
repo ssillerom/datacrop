@@ -31,11 +31,11 @@ def app():
     col1.header("Formado por:")
     col1.image('./img/logo-light.png')
     col1.image('./img/datagri.png')
-    
-    col2.image('./img/sergio.png',width= 200)
-    col2.markdown('Sergio Sillero')
-    col3.image ('./img/jimena.png',width= 200)
-    col3.markdown('Jimena Areta')
+
+    col2.image ('./img/jimena.png',width= 200)
+    col2.markdown('Jimena Areta')
+    col3.image('./img/sergio_cropped.png',width= 200)
+    col3.markdown('Sergio Sillero')
 
     
 
