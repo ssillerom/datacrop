@@ -5,9 +5,13 @@ Team Datacrop Development
 
 Tener instalado Kit de desarrollo de Java mayor o igual a la versión 8 para que pueda arrancar h2o y usar AutoML
 
+hacer un git clone de este repositorio en la carpeta que desee
+
+
+
 Como ejecutar la plataforma en local con Anaconda:
 
-1. Abrir Anaconda Prompt e ir a la raiz del directorio donde se encuentra el environment.ynl
+1. Abrir Anaconda Prompt e ir a la raiz del directorio donde se encuentra el environment.yml
 
 Crear tu propio entorno con todas las dependencias instaladas a través de Anaconda:
 
