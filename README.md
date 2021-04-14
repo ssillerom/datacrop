@@ -27,3 +27,4 @@ una vez iniciado todo podrá acceder a la platforma a través de:
 
 localhost:8501 o 127.0.0.1:8501
 
+Usuario: Cajamar Contraseña: Datacrop21

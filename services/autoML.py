@@ -261,8 +261,7 @@ def app():
                 df_preds), unsafe_allow_html=True)
 
             # PASO 4 Exportar modelo y predicciones
-
-            model_path = h2o.save_model(
+            h2o.save_model(
                 model=aml.leader, path="./trained_models/", force=True)
 
         else:
