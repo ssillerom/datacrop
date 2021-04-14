@@ -18,6 +18,10 @@ Como ejecutar la plataforma en local con Anaconda:
  Crear tu propio entorno con todas las dependencias instaladas a través de Anaconda:
 
  conda env create -n datacrop21 -f environment.yml
+ 
+ si no funciona bien el enviroment.yml hay una alternativa, en el directorio existe un archivo requirements donde su finalidad es la misma (instalar dependencias y paquetes). Para ejecutarlo porfavor, hagalo dentro de la raiz de la carpeta datacrop donde está clonado este repositorio:
+ 
+ pip install -r requirements.txt 
 
 2. Activar el nuevo entorno:
 
