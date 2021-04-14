@@ -5,7 +5,7 @@ import webbrowser
 
 # TO-DO
 def app():
-    st.header(":tractor: Datacrop Advanced Agro-Analytics Services v0.2.0 :deciduous_tree:")
+    st.header(":tractor: Datacrop Advanced Agro-Analytics Services v0.2.6 :deciduous_tree:")
 
     st.subheader("""¡Bienvenidos a nuestra plataforma creada para la fase nacional del "Reto Cajamar Agro Analysis"
 

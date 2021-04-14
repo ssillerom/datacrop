@@ -8,7 +8,12 @@ from pandas_profiling import ProfileReport
 
 def app():
     st.header("¿Quieres ver de una forma rápida y sencilla la calidad de tus datos?")
-    st.subheader("Usa EDS y consigue un reporte estadistico exploratorio sobre tus datos. Dispones de dos tipos de reportes diferentes: Pandas EDA y Sweetviz Report")
+    st.subheader("Usa EDS y consigue un reporte estadistico exploratorio sobre tus datos. Dispones de dos tipos de reportes diferentes: Pandas EDA y Sweetviz Report.")
+
+    st.markdown('##')
+    st.markdown("Tiempo medio de ejecución: 30 segundos")
+
+    
 
     menu = ["Pandas EDA", "SweetViz Report"]
     choice = st.selectbox("Menu", menu)
@@ -40,7 +45,7 @@ def app():
             if st.button("Usar datos de ejemplo"):
                 st.info(
                     "Generando informe de ejemplo con Pandas EDA porfavor espere...")
-                df_test = pd.read_csv("./data/comercioExterior_Limpio.csv")
+                df_test = pd.read_csv("./data/Consumo_Comunidades_F_H.csv")
                 pr = ProfileReport(df_test, explorative=True)
                 st.header('**DataFrame Cargado**')
                 st.write(df_test)
@@ -64,9 +69,9 @@ def app():
                 pass
         else:
             st.info("Esperando a recibir datos en CSV...")
-            if st.button("Usar datos de prueba"):
+            if st.button("Usar datos de ejemplo"):
                 st.info('Generando informe, porfavor espere...')
-                df_test = pd.read_csv("./data/comercioExterior_Limpio.csv")
+                df_test = pd.read_csv("./data/Consumo_Comunidades_F_H.csv")
                 report = sv.analyze(df_test)
                 report.show_html()
                 st.write(report)
