@@ -5,7 +5,7 @@ Team Datacrop Development
 
 Tener instalado Kit de desarrollo de Java mayor o igual a la versión 8 para que pueda arrancar h2o y usar AutoML
 
-hacer un git clone de este repositorio en la carpeta que desee
+hacer un git clone de este repositorio en la carpeta que desee (primero acceder con cd a la carpeta donde quiere clonarlo)
 
 git clone https://github.com/ssillerom/datacrop.git
 
