@@ -13,25 +13,25 @@ git clone https://github.com/ssillerom/datacrop.git
 
 Como ejecutar la plataforma en local con Anaconda:
 
-1. Abrir Anaconda Prompt e ir a la raiz del directorio donde se encuentra el environment.yml
+1. Abrir Anaconda Prompt e ir a la raiz del directorio donde se encuentra el requirements.txt
 
  Crear tu propio entorno con todas las dependencias instaladas a través de Anaconda:
 
- conda env create -n datacrop21 -f environment.yml
- 
- si no funciona bien el enviroment.yml hay una alternativa, en el directorio existe un archivo requirements donde su finalidad es la misma (instalar dependencias y paquetes). Para ejecutarlo porfavor, hagalo dentro de la raiz de la carpeta datacrop donde está clonado este repositorio:
- 
- pip install -r requirements.txt 
+ conda create -n datacrop21 pip
 
 2. Activar el nuevo entorno:
 
  conda activate datacrop21
+ 
+3. Instalar las dependencias que se encuentran en el fichero requirements.txt del repositorio clonado (debe estar en la raiz del proyecto):
+
+pip install -r requirements.txt
 
 3. Ejecutar la plataforma en local, una vez instalada las librerías se deberá ejecutar:
 
- streamlit run app.py
+streamlit run app.py
 
- Esperar unos segundos a que se ejecute el nodo de h2o...
+Esperar unos segundos a que se ejecute el nodo de h2o...
 
 una vez iniciado todo podrá acceder a la platforma a través de:
 
