@@ -1,7 +1,7 @@
 
 import streamlit as st
 from multiapp import MultiApp
-from services import inicio, datos, autoML, dashboard, eda, limpieza
+from services import inicio, datos, autoML, dashboard, eda, limpieza, scraping
 
 try:
     st.set_page_config(page_title='Datacrop Platform', page_icon="https://i.imgur.com/2b7fItD.png",layout='wide', initial_sidebar_state='expanded')
@@ -12,6 +12,7 @@ except:
 app = MultiApp()
 
 app.add_app("Inicio", inicio.app)
+app.add_app(("Técnicas de Scraping"), scraping.app)
 app.add_app("Limpieza de Datos", limpieza.app)
 app.add_app("Analisis de los Datos", datos.app)
 app.add_app("Dashboards", dashboard.app)

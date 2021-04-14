@@ -66,6 +66,8 @@ def app():
                             'r', encoding='utf-8')
             source_code = HtmlFile.read()
             stc.html(source_code, width=1400, height=650, scrolling=True)
+        else:
+            pass
 
         st.markdown('##')
 
@@ -311,8 +313,180 @@ Durante el periodo de enero-diciembre de 2020 y con una pandemia de por medio, e
 
     elif choice == "Análisis 5":
         st.header('El estado de alarma revoluciona los hábitos de consumo')
-        df3 = load_pregunta('./data/covid19DatosEU_Limpio.csv')
-        st.dataframe(df3)
+        
+        st.markdown('##')
+
+        st.subheader('Jupyter Notebooks: ')
+
+        st.markdown
+
+        col4,col5 = st.beta_columns(2)
+
+
+        if col4.checkbox('Estudio patrones de consumo'):
+            HtmlFile = open('./data/analisis/a5/patrones_consumo_1.html',
+                            'r', encoding='utf-8')
+            source_code = HtmlFile.read()
+            stc.html(source_code, width=1400, height=650, scrolling=True)
+
+
+
+        elif col5.checkbox('Modelo Machine Learning Consumo'):
+            HtmlFile = open('./data/analisis/a5/patrones_consumo_extra.html',
+                            'r', encoding='utf-8')
+            source_code = HtmlFile.read()
+            stc.html(source_code, width=1400, height=650, scrolling=True)
+
+        else:
+            pass
+
+
+        st.markdown('##')
+
+        st.markdown("""
+        
+        Los hábitos de consumo han ido cambiando en la última década con el boom del e-commerce. Sin embargo, hay una serie de productos cuya venta no había cuajado a través del canal online, como los pertenecientes al sector de la alimentación de productos frescos. En marzo de 2020, las grandes distribuidoras re-adaptaron sus cadenas de distribución para poder repartir este tipo de alimentos perecederos de forma rápida en los hogares españoles sometidos al confinamiento.
+
+        """)
+
+        st.markdown('##')
+
+        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiMjIwOGEwNWItZWNhYy00NmYyLWFjODEtMzRlOTg2YjkyZTg3IiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9&amp;pageName=ReportSection62cbdfda817c90dec869",height=635, width=1200)
+
+        st.markdown('##')
+
+        st.markdown("""
+        A continuación, se muestran los meses de mayor penetración por cada canal de venta (internet, supermercados e hipermercados) para el total de frutas, hortalizas y patatas.
+        
+        """)
+
+        st.markdown('##')
+
+        st.image('./img/img5.png', use_column_width='auto')
+
+        st.markdown('##')
+
+        st.markdown("""
+        Se observa que la penetración (% de hogares/familias que compran ese producto) para los distintos tipos de producto fue variando a lo largo del primer confinamiento domiciliario en los distintos canales de venta. En cada uno de ellos la máxima penetración de frutas, hortalizas y patatas se da en el mismo mes. En el caso de internet y supermercados este mes es abril, mientras que de los hipermercados fue en marzo. 
+        
+        
+        """)
+
+        st.markdown("""
+        Esto se debe a un fenómeno que todos hemos compartido. En marzo, con el mayor grado de incertidumbre respecto al virus, la gente temía ir a hacer la compra a espacios de tamaño reducido y además tampoco se podía hacer la compra online, ya que está quedó limitada para los grupos de mayor riesgo. Por ello, los consumidores acudían a los hipermercados y de ahí que el mes con mayor penetración fuera marzo. A lo largo de dicho mes la gente fue adaptándose a la situación y poco a poco mejoraron los sistemas de distribución que permitieron que abril fuese el mes en el que internet tuvo una mayor penetración de mercado.
+        
+        """)
+
+        st.markdown('##')
+
+        stc.iframe("https://app.powerbi.com/view?r=eyJrIjoiMDdhMjk5ZDUtOTBkMy00ZTQwLTg5YmUtYmQ1NTFjN2E1MGQwIiwidCI6IjZhZmVhODVkLWMzMjMtNDI3MC1iNjlkLWE0ZmIzOTI3YzI1NCIsImMiOjl9&amp;pageName=ReportSection205c65e8e1a505790279", height=635,width=1200)
+
+        st.markdown('##')
+
+        st.markdown("""
+        Si se estudia la tendencia de productos agrícolas como la col, el brócoli o la zanahoria por internet y previamente al estado de alarma, se observa que es la misma todos los años. Esto ocurre de la misma manera en el gráfico de arriba para el canal físico. Sin embargo, llega el estado de alarma y se dispara la penetración de mercado por internet muy por encima de los valores normales correspondientes a esas fechas en años anteriores. Esto no ocurre en el caso del supermercado, donde la tendencia fue la misma.
+        
+        
+        """)
+
+        st.header("La Inteligencia Artificial como herramienta de apoyo en la toma de decisiones y en la digitalización del sector agrario")
+
+        st.markdown('##')
+
+        st.subheader("Aproximación 1: Modelo de Machine Learning para la predicción del consumo por producto y CCAA")
+
+        st.markdown("""
+        Para ello se llevó a cabo un modelo para la predicción del consumo (variable objetivo o target) en base al precio medio de cada producto y comunidad autónoma (características o features). 
+        
+        """)
+
+        st.markdown("""
+        Los datos para entrenar el modelo está comprendida por meses entre el 2018 y 2020. Previo a la introducción de los datos en el modelo, fue necesario llevar a cabo una serie de pasos:
+        
+        
+        """)
+
+
+        st.markdown("""
+        - Convertir las variables de texto en variables categóricas: con la función OneHotEncoder que convierte las columnas ‘Producto’ y ‘Comunidad Autónoma’, creando una columna para cada valor distinto que exista en la característica que estamos codificando (por ejemplo, una columna por producto) y, para cada registro, marcar con un 1 la columna a la que pertenezca dicho registro y dejar las demás con 0. 
+        - Eliminar la variable fecha y dejar las variables año y mes en columnas separadas (dos variables diferentes) y se ordena el dataset por fechas.
+        - Dividir el dataset en train y test (80% y 20% respectivamente)
+        - Inicializar 3 modelos diferentes de regresión para compararlos entre ellos: LGBMRegressor, XGBoostRegressor, CatBoostRegressor
+        - Se construye un ‘pipeline’ que permite entrenar el modelo pasando por varias funciones. Esto es necesario ya que antes los valores deben estandarizarse antes de introducirse en el modelo.
+        
+        """)
+
+        st.markdown("""
+        Entonces se entrena el modelo y se obtienen las métricas tanto por separación train/test como por validación cruzada que evalúa los resultados del modelo entrenando con todos los datos en varias iteraciones (de forma que garantiza que el resultado es independiente de la partición entre datos de train y test). El score (que por defecto en los problemas de regresión es el r2 o coeficiente de determinación) fue el siguiente:
+        
+        """)
+
+        st.image('./img/img6.png',use_column_width='auto')
+
+        st.markdown("""
+        El modelo con mayor score es el CatBoost por lo que se calcula el score para ese modelo por  validación cruzada (representación del score si se entrenase con todo el dataset). El score de validación cruzada es -0.171, es decir, el modelo predice por debajo de la media, es inservible.
+        
+        """)
+
+        st.markdown("""
+        Por esa razón, resulta necesario realizar una búsqueda de meta-parámetros, a través de GridSearchCV, donde se introduce un intervalo con varios parámetros y el modelo obtiene la combinación de ellos que maximiza el r2.
+        
+        """)
+
+        st.image('./img/img7.png',use_column_width='auto')
+
+        st.markdown("""
+        El r2 score que se obtuvo era muy bajo (casi cercano a 0) por lo que el modelo no resultaba útil. Esto puede deberse a que se ha entrenado con todos los datos sin diferenciar el lugar de compra del cual proceden los productos. Por eso resulta fundamental realizar más modelos para los datos, pero segmentados por lugar de compra ya que cada uno sigue una tendencia diferente. 
+        
+        """)
+
+        st.markdown("""
+        Por eso, se realizó la segunda aproximación: la predicción del consumo por producto en un canal de compra específico (internet fue el escogido).
+        
+        
+        """)
+
+        st.subheader("Aproximación 2. Modelo de Machine Learning para la predicción de consumo en el canal de venta online (Internet)")
+
+
+        st.markdown("""
+        Para ello, se realizaron los mismos pasos que en el caso anterior, con la diferencia de que se aumentó la serie temporal (añadiendo datos desde 2013 a 2020). El resultado fue el siguiente:
+        
+        """)
+
+        st.image('./img/img8.png',use_column_width='auto')
+
+        st.markdown("Utilizando GridSearchCV para encontrar los meta-parámetros óptimos se obtuvo el siguiente score: ")
+
+        st.image('./img/img9.png',use_column_width='auto')
+
+        st.markdown("Con un modelo que tiene un r2 score de 0.707 se puede realizar una buena predicción del consumo. ")
+
+        st.markdown("""
+        La diferencia en el score de los dos modelos reside en un principio fundamental del Machine Learning: no se puede tener una buena predicción con datos que se diferencian mucho de la distribución que venía dándose años atrás. Por esa razón es muy importante tener un buen histórico de datos como ocurría en el segundo modelo que entrenaba con los datos (entre 2013 y 2020) obtenidos mediante el scraping del MAPA.
+        
+        """)
+
+        st.markdown("""
+        Estas predicciones resultan muy útiles para el mercado agrícola donde la volatilidad e impredictibilidad de los precios es en general contraproducente para la cadena alimentaria, y es especialmente crítica para los eslabones productores.
+        
+        """)
+
+        st.markdown(""""
+        Por eso resulta tan interesante incorporar también el AutoML donde se puede subir cualquier archivos csv y obtener predicciones de la variable que se desee, permitiendo así conocer las perspectivas de futuro del sector. Esta es la razón por la cual decidimos construir nuestra plataforma Datacrop Advanced Agro-Analytics Service (www.platform.datacrop.es) , con la finalidad de realizar toma de decisiones más efectiva y a destinar los recursos conforme a las predicciones obtenidas, de forma que se eviten situaciones como las que se dieron durante el estado de alarma, en las que no se pudo atender la demanda de ciertos productos. La plataforma no solo permite realizar predicciones recurriendo al AutoML, sino también tener una visualización completa de cómo las variables se relacionan entre sí.
+        
+        """)
+
+        st.subheader("Conclusiones obtenidas en el análisis del reto")
+
+        st.markdown("""
+        Desde el comienzo del estado de alarma, los hábitos de compra cambiaron , el mercado interno no era capaz de absorber la producción debido al cierre del canal HORECA (Hoteles, Restaurantes y Cafeterías), el cierre de fronteras y las limitaciones de tránsito y transporte internacional limitaban considerablemente las exportaciones, y en este periodo de incertidumbre, otros países con medidas de prevención frente al coronavirus más laxas aprovechan para introducir sus productos en mercados que antes nos eran propios. Toda esta serie de hechos que se sucedieron en un escenario desconocido evidenciaron la necesidad de la digitalización del sector agrario, convirtiéndose esta en una herramienta transversal para la recuperación y modernización del sector agrario español tras la covid-19.
+        
+        """)
+
+
+
+
     else:
         st.info("Esperando a que seleccione alguna de las preguntas...")
 

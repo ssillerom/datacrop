@@ -12,6 +12,7 @@ def app():
     Recuerde que puede ver la documentación de la plataforma en nuestra página web donde se explica su estructura y cómo funciona
 
     El menú principal que hay a su izquierda se compone de:
+    - Técnicas de Scraping
     - Limpieza de Datos
     - Análisis de los Datos del reto
     - Dashboards 
