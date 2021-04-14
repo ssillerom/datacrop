@@ -1,4 +1,4 @@
-# Datacrop Advanced Agro-Analytics Services // Platform
+# Datacrop Advanced Agro-Analytics Services v0.2.6 // Platform
 Team Datacrop Development
 
 - Requisitos previos:
