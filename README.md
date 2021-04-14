@@ -7,6 +7,8 @@ Tener instalado Kit de desarrollo de Java mayor o igual a la versión 8 para que
 
 hacer un git clone de este repositorio en la carpeta que desee
 
+git clone https://github.com/ssillerom/datacrop.git
+
 
 
 Como ejecutar la plataforma en local con Anaconda:
