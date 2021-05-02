@@ -1,9 +1,15 @@
 import streamlit as st
 import pandas as pd
+import codecs 
 import sweetviz as sv
 from streamlit_pandas_profiling import st_profile_report
 from pandas_profiling import ProfileReport
 
+
+def st_display_sweetviz(report_html,width=1000,height=500):
+	report_file = codecs.open(report_html,'r')
+	page = report_file.read()
+	components.html(page,width=width,height=height,scrolling=True)
 
 
 def app():
@@ -13,7 +19,6 @@ def app():
     st.markdown('##')
     st.markdown("Tiempo medio de ejecución: 30 segundos")
 
-    
 
     menu = ["Pandas EDA", "SweetViz Report"]
     choice = st.selectbox("Menu", menu)
@@ -64,7 +69,7 @@ def app():
             if st.button("Generar reporte"):
                 report = sv.analyze(df)
                 report.show_html()
-                st.write(report)
+                st_display_sweetviz("SWEETVIZ_REPORT.HTML")
             else:
                 pass
         else:
@@ -74,7 +79,7 @@ def app():
                 df_test = pd.read_csv("./data/Consumo_Comunidades_F_H.csv")
                 report = sv.analyze(df_test)
                 report.show_html()
-                st.write(report)
+                st_display_sweetviz("SWEETVIZ_REPORT.HTML")
 
     # Remover el footer de made with streamlit
     hide_footer_style = """
