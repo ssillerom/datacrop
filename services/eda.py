@@ -17,7 +17,7 @@ def app():
     st.subheader("Usa EDS y consigue un reporte estadistico exploratorio sobre tus datos. Dispones de dos tipos de reportes diferentes: Pandas EDA y Sweetviz Report.")
 
     st.markdown('##')
-    st.markdown("Tiempo medio de ejecución: 30 segundos.")
+    st.markdown("Tiempo medio de ejecución: 30 segundos")
 
 
     menu = ["Pandas EDA", "SweetViz Report"]
